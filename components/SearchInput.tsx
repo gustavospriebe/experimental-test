@@ -1,13 +1,13 @@
 "use client";
 
 import { searchContext } from "@/context/searchContext";
-import { useContext, useState } from "react";
+import { FormEvent, useContext, useState } from "react";
 
 export default function SearchInput() {
   const [value, setValue] = useState("");
   const { setSearch } = useContext(searchContext);
 
-  function handleSearch(e: React.FormEvent<HTMLFormElement>) {
+  function handleSearch(e: FormEvent) {
     e.preventDefault();
     setSearch(value);
   }
