@@ -1,7 +1,7 @@
 "use client";
 
 import { search, searchProviderProps } from "@/types/types";
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 export const searchContext = createContext<search>({
   search: "",
@@ -16,4 +16,9 @@ export const SearchProvider = ({ children }: searchProviderProps) => {
       {children}
     </searchContext.Provider>
   );
+};
+
+export const useSearch = () => {
+  const { search, setSearch } = useContext(searchContext);
+  return { search, setSearch };
 };
