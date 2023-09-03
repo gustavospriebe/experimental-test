@@ -1,15 +1,9 @@
-import axios from "axios";
+import useData from "@/hooks/useFetch";
+import { Product } from "@/types/types";
 import ProductItem from "./ProductItem";
 
-interface Product {
-  id: number;
-  name: string;
-  price: number;
-}
-
 export default async function SearchResults() {
-  const res = await axios.get<Product[]>("http://localhost:3333/products");
-  const products = res.data;
+  const products = await useData();
 
   return (
     <div>

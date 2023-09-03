@@ -1,3 +1,8 @@
+'use client'
+
+import { searchContext } from "@/context/searchContext";
+import { useContext } from "react";
+
 interface Product {
   product: {
     id: number;
@@ -6,6 +11,12 @@ interface Product {
   };
 }
 
+
+
 export default function ProductItem({ product }: Product) {
+  const { search } = useContext(searchContext);
+
+
+
   return <p>{product.name}</p>;
 }
